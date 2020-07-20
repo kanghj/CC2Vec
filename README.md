@@ -42,14 +42,20 @@ We have a number of different parameters (Note that the number of hyperparameter
 - In the first task (log message generation), simply run this command to train our model:
 
       $ python lmg_cc2ftr.py -train -train_data [path of our training data] -dictionary_data [path of our dictionary data]
+      
+      ```python lmg_cc2ftr.py -train -train_data ../data_and_model/data/lmg/train.pkl -dictionary_data ../data_and_model/data/lmg/dict.pkl```
 
 - The command will create a folder snapshot used to save our model. To extract the code change features, please follow this command:
 
       $ python lmg_cc2ftr.py -predict -pred_data [path of our data] -dictionary_data [path of our dictionary data] -load_model [path of our model] -name [name of our output file]
       
+      ```python lmg_cc2ftr.py -predict -pred_data ../data_and_model/data/lmg/test.pkl -dictionary_data ../data_and_model/data/lmg/dict.pkl -load_model snapshot/2020-07-06_08-24-00/epoch_30.pt -name cc2ftr_test_output```
+      
 - To evaluation the first task, please run this command:
 
       $ python lmg_eval.py -train_data [path of our training data] -test_data [path of our testing data] -train_cc2ftr_data [path of our code changes features extracted from training data] -test_cc2ftr_data [path of our code changes features extracted from testing data] 
+      
+      ```python lmg_eval.py -train_data ../data_and_model/data/lmg/train.pkl -test_data ../data_and_model/data/lmg/test.pkl -train_cc2ftr_data ../data_and_model/data/lmg/train_cc2ftr.pkl -test_cc2ftr_data ../data_and_model/data/lmg/test_cc2ftr.pkl```
 
 ### 2. Bug fixing patch identification
 
@@ -88,6 +94,13 @@ We have a number of different parameters (Note that the number of hyperparameter
 - To evaluate the model for just-in-time defect prediction, please follow this command:
       
        $ python jit_DExtended.py -predict -pred_data [path of our data] -pred_data_cc2ftr [path of our code changes features extracted from our data] -dictionary_data [path of our dictionary data] -load_model [path of our model]
+
+Examples
+
+```python jit_DExtended.py -predict -pred_data ../data_and_model/data/jit/qt_test_dextend.pkl -pred_data_cc2ftr ../data_and_model/data/jit/qt_test_cc2ftr.pkl -diction
+ary_data ../data_and_model/data/jit/qt_dict.pkl -load_model ../data_and_model/model/jit/qt_djit_extend.pt```
+
+```python jit_DExtended.py -predict -pred_data ../data_and_model/data/jit/openstack_test_dextend.pkl -pred_data_cc2ftr ../data_and_model/data/jit/openstack_test_cc2ftr.pkl -dictionary_data ../data_and_model/data/jit/openstack_dict.pkl -load_model ../data_and_model/model/jit/openstack_djit_extend.pt```
 
 ## Contact
 
