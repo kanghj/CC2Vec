@@ -76,6 +76,8 @@ Examples:
       
        $ python bfp_PNExtended.py -predict -pred_data [path of our data] -pred_data_cc2ftr [path of our code changes features extracted from our data] -dictionary_data [path of our dictionary data] -load_model [path of our model]
        
+       python bfp_PNExtended.py -predict -pred_data ../data_and_model/data/bfp/test.pkl -pred_data_cc2ftr ../data_and_model/data/bfp/test_cc2ftr.pkl -dictionary_data ../data_and_model/data/bfp/dict.pkl -load_model ../data_and_model/model/bfp/pn_extend.pt
+       
 ### 3. Just-in-time defect prediction
 
 - For each dataset in just-in-time defect prediction (qt or openstack), we create two variants: one for training code changes features ('.pkl'), the other one for training just-in-time defect prediction model (end with '_dextend.pkl'). 
@@ -104,6 +106,7 @@ ary_data ../data_and_model/data/jit/qt_dict.pkl -load_model ../data_and_model/mo
 
 ```python jit_DExtended.py -predict -pred_data ../data_and_model/data/jit/openstack_test_dextend.pkl -pred_data_cc2ftr ../data_and_model/data/jit/openstack_test_cc2ftr.pkl -dictionary_data ../data_and_model/data/jit/openstack_dict.pkl -load_model ../data_and_model/model/jit/openstack_djit_extend.pt
 ```
+
 
 ## Contact
 
